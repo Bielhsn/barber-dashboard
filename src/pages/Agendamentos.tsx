@@ -3,15 +3,29 @@ import { Agendamento } from '../types';
 import Navbar from '../components/Navbar';
 import AppointmentTable from '../components/AppointmentTable';
 
+interface ImportMetaEnv {
+    readonly VITE_API_URL: string;
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv;
+}
+
+declare global {
+    interface ImportMeta {
+        readonly env: ImportMetaEnv;
+    }
+}
+
 export default function Agendamentos() {
     const [agendamentos, setAgendamentos] = useState<Agendamento[]>([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/agendamentos')
+        fetch(`${import.meta.env.VITE_API_URL}/agendamentos`)
             .then(res => res.json())
             .then(data => setAgendamentos(data))
             .catch(() => alert('Erro ao buscar agendamentos'));
-    }, []);
+    }, []);        
 
     return (
         <div className="min-h-screen bg-gray-50">
