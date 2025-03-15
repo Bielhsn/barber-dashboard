@@ -1,5 +1,5 @@
 import { Agendamento } from '../types';
-import { Calendar, Clock, User, Phone, Scissors } from 'lucide-react';
+import { Calendar, Clock, User, Phone, Scissors, UserCheck } from 'lucide-react';
 import { format } from 'date-fns';
 
 interface Props {
@@ -17,6 +17,7 @@ export default function AppointmentTable({ agendamentos }: Props) {
                         <th className="p-3 text-left"><User className="inline-block mr-2" /> Cliente</th>
                         <th className="p-3 text-left"><Phone className="inline-block mr-2" /> Telefone</th>
                         <th className="p-3 text-left"><Scissors className="inline-block mr-2" /> Serviço</th>
+                        <th className="p-3 text-left"><UserCheck className="inline-block mr-2" /> Barbeiro</th> {/* Novo campo */}
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,7 @@ export default function AppointmentTable({ agendamentos }: Props) {
                             <td className="p-3">{a.nome}</td>
                             <td className="p-3">{a.telefone}</td>
                             <td className="p-3 font-semibold">{a.servico}</td>
+                            <td className="p-3 font-semibold">{a.barbeiro}</td> {/* Exibe o barbeiro escolhido */}
                         </tr>
                     ))}
                 </tbody>

@@ -4,4 +4,5 @@ export interface Agendamento {
     data: string;
     hora: string;
     servico: string;
+    barbeiro: string;
 }
