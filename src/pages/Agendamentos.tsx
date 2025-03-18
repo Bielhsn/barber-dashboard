@@ -21,11 +21,20 @@ export default function Agendamentos() {
     const [agendamentos, setAgendamentos] = useState<Agendamento[]>([]);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/agendamentos`)
-            .then(res => res.json())
-            .then(data => setAgendamentos(data))
-            .catch(() => alert('Erro ao buscar agendamentos'));
-    }, []);        
+        const fetchAgendamentos = async () => {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/agendamentos`);
+                const data = await response.json();
+                console.log("Agendamentos recebidos:", data);
+                setAgendamentos(data);
+            } catch (error) {
+                console.error("Erro ao buscar agendamentos:", error);
+            }
+        };
+    
+        fetchAgendamentos();
+    }, []);
+           
 
     return (
         <div className="min-h-screen bg-gray-50">
