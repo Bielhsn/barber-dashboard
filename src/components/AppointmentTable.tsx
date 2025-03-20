@@ -17,7 +17,7 @@ export default function AppointmentTable({ agendamentos }: Props) {
                         <th className="p-3 text-left"><User className="inline-block mr-2" /> Cliente</th>
                         <th className="p-3 text-left"><Phone className="inline-block mr-2" /> Telefone</th>
                         <th className="p-3 text-left"><Scissors className="inline-block mr-2" /> Serviço</th>
-                        <th className="p-3 text-left"><UserCheck className="inline-block mr-2" /> Barbeiro</th> {/* Novo campo */}
+                        <th className="p-3 text-left"><UserCheck className="inline-block mr-2" /> Barbeiro</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@ export default function AppointmentTable({ agendamentos }: Props) {
                             <td className="p-3">{a.nome}</td>
                             <td className="p-3">{a.telefone}</td>
                             <td className="p-3 font-semibold">{a.servico}</td>
-                            <td className="p-3 font-semibold">{a.barbeiro}</td> {/* Exibe o barbeiro escolhido */}
+                            <td className="p-3 font-semibold">{a.barbeiro}</td>
                         </tr>
                     ))}
                 </tbody>
